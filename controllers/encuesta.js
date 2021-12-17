@@ -4,7 +4,7 @@ const Pregunta=require('../models/pregunta');
 
 const allencuestas=async(req,res)=>{
  
-    const encuestas=await Encuesta.find();
+    const encuestas=await Encuesta.find({},"title estado");
     console.log(encuestas);
     return res.json(
         {
@@ -17,7 +17,7 @@ const allencuestas=async(req,res)=>{
    const getencuesta=async(req,res)=>{
      const {id}=req.params;
      
-     var encuesta=await Pregunta.find({"encuesta.id":id});
+     const encuesta=await Encuesta.findById(id);
      console.log(encuesta);
    
     

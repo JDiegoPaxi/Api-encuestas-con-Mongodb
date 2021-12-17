@@ -7,4 +7,5 @@ router.get('/',allencuestas);
 router.get('/:id',getencuesta);
 
 
+
 module.exports=router;

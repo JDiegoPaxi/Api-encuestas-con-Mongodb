@@ -1,27 +1,17 @@
-const {Schema,model}=require('mongoose');
+const {Schema,model, Mongoose, Types}=require('mongoose');
 const PreguntaSchema=Schema({ 
-    descripcion:{
-        type: String,
-        require:true
-    },
-    istypeabierto:{
-        type: Boolean
-    },
-    selectmultiple:{
-        type: Boolean
-    },
-    opciones:[
-        {
-          descripcion:String,
-        }
-    ],
+    
+    
+    
+
+    
     encuesta:{
-               id:Number,
-               nombre:String
+               type:Schema.Types.ObjectId,
+               ref: 'encuestas'
              }
     
 
    
-},{collection:'pregunta'});
+},{collection:'preguntas'});
 
 module.exports=model('Pregunta',PreguntaSchema);
