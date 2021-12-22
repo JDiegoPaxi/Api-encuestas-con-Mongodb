@@ -1,5 +1,6 @@
 const Encuesta =require('../models/encuesta');
-const Pregunta=require('../models/pregunta');
+const Aplicada=require('../models/aplicada');
+
 
 
 const allencuestas=async(req,res)=>{
@@ -32,8 +33,25 @@ const allencuestas=async(req,res)=>{
      );
    
    }
+
+   const guardarencuesta=async(req,res)=>{
+      
+ 
+    const {title,_id,secciones}=req.body;
+    const enc=new Aplicada({title,'idenc':_id,secciones});
+    await enc.save();
+   
+    return res.json(
+        {
+            ok:true,
+            
+           
+        }
+    );
+   }
    
    module.exports={
     allencuestas,
-    getencuesta
+    getencuesta,
+    guardarencuesta
    }
